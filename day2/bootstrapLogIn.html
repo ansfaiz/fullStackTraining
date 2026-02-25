@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Aetheris</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --aether-primary: #6366f1;
+            --aether-dark: #0f172a;
+            --aether-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Branding Panel Styling */
+        .brand-panel {
+            background: var(--aether-gradient);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Abstract Glow */
+        .brand-panel::after {
+            content: "";
+            position: absolute;
+            bottom: -5%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .brand-logo-box {
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            transform: rotate(-3deg);
+        }
+
+        .brand-name {
+            font-weight: 800;
+            letter-spacing: -1px;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        /* Login Card Styling */
+        .login-card {
+            border: none;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-floating > .form-control:focus {
+            border-color: var(--aether-primary);
+            box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.1);
+        }
+
+        .btn-aether {
+            background-color: var(--aether-dark);
+            color: white;
+            border-radius: 12px;
+            padding: 0.9rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-aether:hover {
+            background-color: var(--aether-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Feature Badge Style */
+        .highlight-badge {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (max-width: 991.98px) {
+            .brand-panel { padding: 4rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid p-0">
+        <div class="row g-0 min-vh-100">
+            
+            <div class="col-lg-6 brand-panel d-flex">
+                <div class="position-relative z-1 mb-5">
+                    <div class="d-flex align-items-center gap-3 mb-5">
+                        <div class="brand-logo-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="fs-3 brand-name">Aetheris</span>
+                    </div>
+
+                    <h1 class="display-4 fw-bold mb-4">Building scalable <span class="text-primary">digital experiences.</span></h1>
+                    
+                    <p class="fs-5 text-white-50 lh-base mb-5" style="max-width: 540px;">
+                        Aetheris is a modern SaaS company delivering secure, scalable, and user-centric digital platforms. We empower startups and enterprises with cloud solutions, AI-driven analytics, and seamless web experiences.
+                    </p>
+
+                    <div class="d-flex flex-column align-items-start">
+                        <div class="highlight-badge">
+                            <i class="bi bi-shield-check text-primary"></i>
+                            Secure cloud infrastructure
+                        </div>
+                        <div class="highlight-badge">
+                            <i class="bi bi-cpu text-primary"></i>
+                            AI-powered analytics
+                        </div>
+                        <div class="highlight-badge">
+                            <i class="bi bi-lightning-charge text-primary"></i>
+                            Enterprise-grade performance
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-auto opacity-25 small fw-medium">
+                    &copy; 2026 Aetheris Technology Group. All rights reserved.
+                </div>
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center justify-content-center p-4 bg-white">
+                <div class="login-card">
+                    
+                    <div class="d-lg-none mb-5 text-center">
+                        <span class="brand-name fs-4 text-dark">Aetheris</span>
+                    </div>
+
+                    <div class="mb-5">
+                        <h2 class="fw-bold text-dark mb-1">Welcome back</h2>
+                        <p class="text-muted">Enter your details to manage your workspace.</p>
+                    </div>
+
+                    <form action="/login" method="POST">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control px-4" id="username" name="username" placeholder="Username" required>
+                            <label for="username" class="px-4 text-muted">Username</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control px-4" id="password" name="password" placeholder="Password" required>
+                            <label for="password" class="px-4 text-muted">Password</label>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="remember">
+                                <label class="form-check-label small text-muted font-medium" for="remember">
+                                    Remember me
+                                </label>
+                            </div>
+                            <a href="#" class="small text-decoration-none fw-bold text-primary">Forgot Password?</a>
+                        </div>
+
+                        <div class="d-grid gap-3">
+                            <button type="submit" class="btn btn-aether shadow-sm">
+                                Sign In
+                            </button>
+                            <button type="reset" class="btn btn-link btn-sm text-decoration-none text-muted fw-medium">
+                                Clear input fields
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="mt-5 pt-4 border-top text-center">
+                        <p class="small text-muted mb-0">
+                            New here? <a href="#" class="text-primary fw-bold text-decoration-none">Create an account</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

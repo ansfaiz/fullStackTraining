@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Faiyaz Ansari Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:Inter}
+.reveal{opacity:0;transform:translateY(40px);transition:.8s}
+.reveal.active{opacity:1;transform:translateY(0)}
+canvas{position:fixed;top:0;left:0;z-index:-1}
+</style>
+</head>
+
+<body class="bg-slate-100 dark:bg-slate-900 text-black dark:text-white scroll-smooth">
+
+<canvas id="particles"></canvas>
+
+<!-- NAVBAR -->
+<nav class="fixed w-full backdrop-blur bg-white/70 dark:bg-slate-900/70 z-50">
+<div class="max-w-6xl mx-auto flex justify-between p-4">
+<h1 class="font-bold text-indigo-500">Faiyaz.dev</h1>
+
+<div class="flex gap-4 items-center">
+<button onclick="toggleTheme()" class="text-xl">🌙</button>
+<a href="resume.pdf" download class="px-4 py-2 bg-indigo-600 text-white rounded">Resume</a>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-4">
+<h1 class="text-5xl font-bold font-[Poppins]">Md Faiyaz Ansari</h1>
+<p id="typing" class="mt-4 text-indigo-500 text-xl"></p>
+</section>
+
+<!-- ABOUT -->
+<section class="max-w-6xl mx-auto p-6 reveal">
+<h2 class="text-3xl font-bold text-indigo-500">About</h2>
+<p class="mt-4">Frontend developer passionate about UI animation and performance.</p>
+</section>
+
+<!-- BLOG -->
+<section class="max-w-6xl mx-auto p-6 reveal">
+<h2 class="text-3xl font-bold text-indigo-500">Blog</h2>
+<div class="grid md:grid-cols-3 gap-6 mt-6">
+
+<div class="p-4 rounded bg-white dark:bg-slate-800 shadow">
+<h3 class="font-bold">Why Tailwind is Future</h3>
+<p class="text-sm opacity-70">Utility-first workflow benefits</p>
+</div>
+
+<div class="p-4 rounded bg-white dark:bg-slate-800 shadow">
+<h3 class="font-bold">JavaScript Tips</h3>
+<p class="text-sm opacity-70">Modern ES6 features explained</p>
+</div>
+
+<div class="p-4 rounded bg-white dark:bg-slate-800 shadow">
+<h3 class="font-bold">UI Animation Guide</h3>
+<p class="text-sm opacity-70">Micro-interaction design tips</p>
+</div>
+
+</div>
+</section>
+
+<footer class="text-center p-6 opacity-70">© 2026 Md Faiyaz Ansari</footer>
+
+<script>
+/* typing */
+const text="Frontend Developer & UI Engineer";
+let i=0;
+(function typing(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;setTimeout(typing,60);
+}})();
+
+/* reveal */
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+reveals.forEach(r=>{
+if(r.getBoundingClientRect().top<window.innerHeight-100){
+r.classList.add("active");
+}
+});
+});
+
+/* theme toggle */
+function toggleTheme(){
+document.documentElement.classList.toggle("dark");
+}
+
+/* particles */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<80;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:2+Math.random()*2,dx:.5-Math.random(),dy:.5-Math.random()});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="rgba(99,102,241,.7)";
+ctx.fill();
+p.x+=p.dx;p.y+=p.dy;
+if(p.x<0||p.x>canvas.width)p.dx*=-1;
+if(p.y<0||p.y>canvas.height)p.dy*=-1;
+});
+requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+</body>
+</html>

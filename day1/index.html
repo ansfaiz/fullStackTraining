@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Lab IDE</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI, sans-serif;
+}
+
+/* Navigation Bar */
+.navbar{
+    background:#111827;
+    color:white;
+    padding:12px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.navbar h2{
+    margin:0;
+}
+
+.navbar a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.navbar a:hover{
+    color:#60a5fa;
+}
+
+/* IDE Layout */
+.ide{
+    display:flex;
+    height:calc(100vh - 50px);
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    background:#1e1e1e;
+    color:#ccc;
+    padding:10px;
+}
+
+.sidebar h3{
+    color:#fff;
+    font-size:14px;
+}
+
+.file{
+    padding:6px;
+    cursor:pointer;
+}
+
+.file:hover{
+    background:#333;
+}
+
+/* Main */
+.main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Editor top */
+.topbar{
+    background:#333;
+    color:white;
+    padding:10px;
+}
+
+.run{
+    background:#007acc;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+/* Editor */
+.editor{
+    flex:1;
+    background:#1e1e1e;
+    padding:10px;
+}
+
+textarea{
+    width:100%;
+    height:100%;
+    background:#1e1e1e;
+    color:#d4d4d4;
+    border:none;
+    outline:none;
+    font-family:monospace;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<div class="navbar">
+    <h2>💻 Virtual Lab</h2>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Compiler</a>
+        <a href="#">Languages</a>
+        <a href="#">Tutorials</a>
+        <a href="#">About</a>
+    </div>
+</div>
+
+<!-- IDE -->
+<div class="ide">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>EXPLORER</h3>
+        <div class="file" onclick="openFile('html')">📄 index.html</div>
+        <div class="file" onclick="openFile('css')">📄 style.css</div>
+        <div class="file" onclick="openFile('js')">📄 script.js</div>
+        <div class="file" onclick="openFile('c')">📄 main.c</div>
+        <div class="file" onclick="openFile('py')">📄 app.py</div>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <div class="topbar">
+            Editor
+            <button class="run" onclick="runCode()">Run</button>
+        </div>
+
+        <div class="editor">
+            <textarea id="codeArea"><h1>Hello Virtual Lab</h1></textarea>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function openFile(type){
+    const codeArea=document.getElementById("codeArea");
+
+    if(type==="html") codeArea.value="<h1>Hello HTML</h1>";
+    if(type==="css") codeArea.value="body{ background:lightblue;}";
+    if(type==="js") codeArea.value="console.log('Hello JS');";
+    if(type==="c") codeArea.value="#include<stdio.h> \nint main(){ printf('Hello C'); }";
+    if(type==="py") codeArea.value="print('Hello Python')";
+}
+
+function runCode(){
+    alert("Compiler integration required (future feature)");
+}
+</script>
+
+</body>
+</html>
