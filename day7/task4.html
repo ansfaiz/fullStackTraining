@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Form Example</h2>
+
+    <form id="form">
+
+        <input type="text" id="name" placeholder="Enter name">
+
+        <input type="email" id="email" placeholder="Enter email"> <br>
+        <input type="password" id="pass" placeholder="enter your password">
+
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+
+<script>
+const form = document.querySelector("#form")
+const nameInput = document.querySelector("#name")
+const emailInput = document.querySelector("#email")
+const passInput = document.querySelector("#pass")
+
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault()
+
+    const password = passInput.value
+    const name = nameInput.value
+    const email = emailInput.value
+
+    isValid(password)
+
+    console.log("Name:", name)
+    console.log("Email:", email)
+
+})
+
+const isValid = function(p){
+
+    const regex = /^(?=.*[0-9])(?=.*[^A-Za-z0-9])[A-Z].*/
+
+    if(p.length >= 8 && p.length <= 10){
+
+        if(regex.test(p)){
+            console.log("Password is valid")
+        }else{
+            console.log("Password is not valid")
+        }
+
+    }else{
+        console.log("Password length must be 8-10 characters")
+    }
+}
+</script>
+
+</html>

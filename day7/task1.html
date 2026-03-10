@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1> THIS IS TASK 1 :</h1> <br>
+    <button id="btn-id" style="padding: 5; margin: 5px; border:5px"> button</button> <br>
+    <p id ='p-id'>0 </p>
+</body>
+<script>
+    const btn=document.getElementById('btn-id')
+    const paragraph=document.getElementById('p-id')
+    var count=0
+    // paragraph.innerText=count;
+    // console.log(btn)
+    btn.addEventListener('click',function(){
+        count++
+        paragraph.innerText=count
+        console.log("button-click")
+    });
+
+</script>
+</html>

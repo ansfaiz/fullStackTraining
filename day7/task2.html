@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Color Changer</h2>
+
+    <button class="color-btn">Red</button>
+    <button class="color-btn">Green</button>
+    <button class="color-btn">Blue</button>
+</body>
+
+<script>
+    const buttons = document.querySelectorAll(".color-btn")
+
+    buttons.forEach(function (btn) {
+
+        btn.addEventListener("click", function (event) {
+
+            const color = event.target.innerText.toLowerCase()//because css is non- Case sensetive lang so it work in both capital and lower also but better to write in lower case
+
+            document.body.style.backgroundColor = color
+
+        })
+
+    })
+</script>
+
+</html>

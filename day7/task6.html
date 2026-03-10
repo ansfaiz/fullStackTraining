@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-md bg-white rounded-xl shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Task List</h2>
+        
+        <div class="flex flex-col gap-2 sm:flex-row">
+            <input type="text" name="task" id="inp-id" placeholder="Enter task..." 
+                class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
+            
+            <button id="add-btn" type="button" 
+                class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-colors">
+                Add Task
+            </button>
+        </div>
+
+        <ul id="list-id" class="mt-6 space-y-2 cursor-pointer">
+            </ul>
+    </div>
+
+</body>
+ <script>
+    const task = document.querySelector('#inp-id');
+    const addbtn = document.querySelector('#add-btn');
+    const list = document.querySelector('#list-id');
+
+    addbtn.addEventListener('click', function() {
+        if (task.value.trim() === "") return; // Prevent empty tasks
+
+        const listItem = document.createElement('li');
+        
+        // Applying Tailwind classes directly to the new element
+        listItem.className = "p-3 bg-gray-50 border border-gray-200 rounded-md hover:bg-gray-100 transition-all text-gray-700";
+        listItem.innerText = task.value;
+        
+        list.appendChild(listItem);
+        task.value = ""; // Clear input after adding
+    });
+
+    list.addEventListener("click", function (e) {
+        if (e.target.tagName === "LI") {
+            // Using classList instead of inline styles for cleaner state management
+            e.target.classList.toggle('line-through');
+            e.target.classList.toggle('opacity-50');
+        }
+    });
+  </script>
+</html>
